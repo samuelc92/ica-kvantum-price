@@ -1,0 +1,44 @@
+﻿@page "/shopping"
+@using IcaKvantumPrice.Web.ViewModels
+@using Microsoft.FluentUI.AspNetCore.Components
+@attribute [StreamRendering(true)]
+@attribute [OutputCache(Duration = 5)]
+
+<PageTitle>Shopping</PageTitle>
+
+<div>
+    <h1>Shopping</h1>
+</div>
+
+<EditForm Model="@_shopViewModel" OnValidSubmit="@HandleValidSubmit" novalidate>
+    <DataAnnotationsValidator />
+    <FluentValidationSummary />
+
+    <FluentStack Orientation="Orientation.Vertical">
+        <div>
+            <FluentTextField Name="product-identifier" @bind-Value="_shopViewModel.ProductIdentifier" Label="ProductIdentifier" Required />
+            <FluentValidationMessage For="@(() => _shopViewModel.ProductIdentifier)" />
+        </div>
+
+        <div>
+            <FluentTextField Name="description" @bind-Value="_shopViewModel.Description" Label="Description" Required />
+            <FluentValidationMessage For="@(() => _shopViewModel.Description)" />
+        </div>
+
+        <div>
+            <FluentNumberField Name="price" @bind-Value="_shopViewModel.Price" Label="Price" Required />
+            <FluentValidationMessage For="@(() => _shopViewModel.Price)" />
+        </div>
+
+        <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Accent">Register</FluentButton>
+    </FluentStack>
+</EditForm>
+
+@code {
+    private ShopViewModel _shopViewModel { get; set; } = new();
+
+    private void HandleValidSubmit()
+    {
+    
+    }
+}
