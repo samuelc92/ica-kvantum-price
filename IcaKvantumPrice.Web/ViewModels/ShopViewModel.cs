@@ -14,4 +14,7 @@ public class ShopViewModel
 
     [Required]
     public double? Price { get; set; }
+
+    [Required]
+    public DateTime? ShoppingDate { get; set; }
 }

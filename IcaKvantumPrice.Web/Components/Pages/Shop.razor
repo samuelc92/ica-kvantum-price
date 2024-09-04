@@ -10,13 +10,13 @@
     <h1>Shopping</h1>
 </div>
 
-<EditForm Model="@_shopViewModel" OnValidSubmit="@HandleValidSubmit" novalidate>
+<EditForm Model="@_shopViewModel" OnValidSubmit="@HandleValidSubmit" FormName="shopping_fluent_entry" novalidate>
     <DataAnnotationsValidator />
     <FluentValidationSummary />
 
     <FluentStack Orientation="Orientation.Vertical">
         <div>
-            <FluentTextField Name="product-identifier" @bind-Value="_shopViewModel.ProductIdentifier" Label="ProductIdentifier" Required />
+            <FluentTextField Name="product-identifier" @bind-Value="_shopViewModel.ProductIdentifier" Label="Product Identifier" Required />
             <FluentValidationMessage For="@(() => _shopViewModel.ProductIdentifier)" />
         </div>
 
@@ -30,15 +30,25 @@
             <FluentValidationMessage For="@(() => _shopViewModel.Price)" />
         </div>
 
+        <div>
+            <FluentDatePicker Name="shopping-date" Id="shoppingdate" @bind-Value="_shopViewModel.ShoppingDate" Label="Shopping Date" Required />
+            <FluentValidationMessage For="@(() => _shopViewModel.ShoppingDate)"/>
+        </div>
+
         <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Accent">Register</FluentButton>
     </FluentStack>
 </EditForm>
 
 @code {
+    [SupplyParameterFromForm]
     private ShopViewModel _shopViewModel { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        _shopViewModel.ShoppingDate = DateTime.Now;
+    }
 
     private void HandleValidSubmit()
     {
-    
     }
 }
