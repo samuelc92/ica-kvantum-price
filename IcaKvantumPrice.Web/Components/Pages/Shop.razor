@@ -31,7 +31,7 @@
         </div>
 
         <div>
-            <FluentDatePicker Name="shopping-date" Id="shoppingdate" @bind-Value="_shopViewModel.ShoppingDate" Label="Shopping Date" Required />
+            <FluentDatePicker Id="shoppingdate" Label="Shopping Date" />
             <FluentValidationMessage For="@(() => _shopViewModel.ShoppingDate)"/>
         </div>
 
