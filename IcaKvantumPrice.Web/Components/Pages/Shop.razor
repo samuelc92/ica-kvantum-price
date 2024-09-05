@@ -1,7 +1,5 @@
 ﻿@page "/shopping"
-@using IcaKvantumPrice.Web.ViewModels
-@using Microsoft.FluentUI.AspNetCore.Components
-@attribute [StreamRendering(true)]
+@rendermode InteractiveServer
 @attribute [OutputCache(Duration = 5)]
 
 <PageTitle>Shopping</PageTitle>
@@ -31,7 +29,7 @@
         </div>
 
         <div>
-            <FluentDatePicker Id="shoppingdate" Label="Shopping Date" />
+            <FluentDatePicker Id="shoppingdate" @bind-Value="_shopViewModel.ShoppingDate" Label="Shopping Date" />
             <FluentValidationMessage For="@(() => _shopViewModel.ShoppingDate)"/>
         </div>
 
