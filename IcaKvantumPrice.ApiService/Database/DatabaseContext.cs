@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using IcaKvantumPrice.ApiService.Database.Configurations;
+using IcaKvantumPrice.ApiService.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace IcaKvantumPrice.ApiService.Database;
 
@@ -10,6 +12,11 @@ public class DatabaseContext : DbContext
         : base(options)
     { }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        new ShoppingConfiguration().Configure(modelBuilder.Entity<Shopping>());
+        base.OnModelCreating(modelBuilder);
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
