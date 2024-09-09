@@ -1,6 +1,7 @@
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using IcaKvantumPrice.ApiService.Database;
+using IcaKvantumPrice.ApiService.Services;
 using Serilog;
 using Serilog.Events;
 
@@ -29,7 +30,9 @@ try
     // Add services to the container.
     builder.Services.AddProblemDetails();
 
-    builder.AddNpgsqlDbContext<DatabaseContext>("icadb");
+    builder.AddNpgsqlDbContext<DatabaseContext>("IcaConnectionString");
+    builder.Services.AddScoped<IPdfService, PdfService>();
+    builder.Services.AddScoped<IShoppingService, ShoppingService>();
 
     var app = builder.Build();
 
