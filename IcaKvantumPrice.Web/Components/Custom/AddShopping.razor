@@ -1,0 +1,28 @@
+﻿<EditForm Model="@_shopViewModel" OnValidSubmit="@HandleValidSubmit" FormName="shopping_fluent_entry" novalidate>
+    <DataAnnotationsValidator />
+    <FluentValidationSummary />
+
+    <FluentStack Orientation="Orientation.Vertical">
+        <div>
+            <FluentTextField Name="product-identifier" @bind-Value="_shopViewModel.ProductIdentifier" Label="Product Identifier" Required />
+            <FluentValidationMessage For="@(() => _shopViewModel.ProductIdentifier)" />
+        </div>
+
+        <div>
+            <FluentTextField Name="description" @bind-Value="_shopViewModel.Description" Label="Description" Required />
+            <FluentValidationMessage For="@(() => _shopViewModel.Description)" />
+        </div>
+
+        <div>
+            <FluentNumberField Name="price" @bind-Value="_shopViewModel.Price" Label="Price" Required />
+            <FluentValidationMessage For="@(() => _shopViewModel.Price)" />
+        </div>
+
+        <div>
+            <FluentDatePicker Id="shoppingdate" @bind-Value="_shopViewModel.ShoppingDate" Label="Shopping Date" />
+            <FluentValidationMessage For="@(() => _shopViewModel.ShoppingDate)"/>
+        </div>
+
+        <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Accent">Register</FluentButton>
+    </FluentStack>
+</EditForm>
