@@ -4,5 +4,5 @@ namespace IcaKvantumPrice.ApiService.Services;
 
 public interface IPdfService
 {
-    ICollection<Shopping> FetchShoppings(string pdfPath);
+    Task AddShoppingsFromFile(string pdfPath);
 }

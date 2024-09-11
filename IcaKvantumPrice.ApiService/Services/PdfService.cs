@@ -1,14 +1,24 @@
-﻿using IcaKvantumPrice.ApiService.Domain;
+﻿using IcaKvantumPrice.ApiService.Database;
+using IcaKvantumPrice.ApiService.Domain;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace IcaKvantumPrice.ApiService.Services;
 
-public class PdfService : IPdfService
+public class PdfService(DatabaseContext database) : IPdfService
 {
-    public ICollection<Shopping> FetchShoppings(string pdfPath)
+    public async Task AddShoppingsFromFile(string pdfPath)
+    {
+        var shoppings = FetchShoppings(pdfPath);
+        foreach (var shopping in shoppings)
+            database.Shoppings.Add(shopping);
+        await database.SaveChangesAsync();
+    }
+
+    private ICollection<Shopping> FetchShoppings(string pdfPath)
     {
         var pdfDoc = new PdfDocument(new PdfReader(pdfPath));
         var response = new List<Shopping>();
@@ -46,7 +56,7 @@ public class PdfService : IPdfService
             {
                 ProductIdentifier = productIdentifier,
                 Description = description,
-                Price = double.Parse(price),
+                Price = Double.Parse(price, NumberStyles.Float, CultureInfo.InvariantCulture),
                 ShoppingDate = DateTime.Parse(purchaseDate)
             });
         }
