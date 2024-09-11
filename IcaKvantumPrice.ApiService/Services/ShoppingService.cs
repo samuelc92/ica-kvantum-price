@@ -6,7 +6,7 @@ using FluentValidation.Results;
 
 namespace IcaKvantumPrice.ApiService.Services;
 
-public class ShoppingService(DatabaseContext database, IPdfService pdfService) : IShoppingService
+public class ShoppingService(DatabaseContext database) : IShoppingService
 {
     public async Task CreateAsync(Shopping shopping)
     {
