@@ -9,10 +9,9 @@
     <h1>Shopping</h1>
 </div>
 
-
 <FluentTabs @bind-ActiveTabId="@activeid" OnTabChange="HandleOnTabChange">
     <FluentTab Label="Kvitto" Id="tab-kvitto">
-        Tab kvitto content.
+        <UploadKvittoShopping />
     </FluentTab>
 
     <FluentTab Label="Shop" Id="tab-shopping">

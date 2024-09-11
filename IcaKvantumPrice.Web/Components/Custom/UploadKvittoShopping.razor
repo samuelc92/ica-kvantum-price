@@ -1,0 +1,13 @@
+﻿<EditForm Model="@_shoppingViewModel" OnValidSubmit="@HandleValidSubmit" FormName="shopping_kvitto_entry" novalidate>
+    <DataAnnotationsValidator />
+    <FluentValidationSummary />
+
+    <FluentStack Orientation="Orientation.Vertical">
+        <div>
+            <FluentTextField Name="file" @bind-Value="_shoppingViewModel.File" Label="File path" Required />
+            <FluentValidationMessage For="@(() => _shoppingViewModel.File)" />
+        </div>
+
+        <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Accent">Upload</FluentButton>
+    </FluentStack>
+</EditForm>

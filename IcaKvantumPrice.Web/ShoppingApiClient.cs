@@ -9,4 +9,10 @@ public class ShoppingApiClient(HttpClient httpClient)
         var response = await httpClient.PostAsJsonAsync<ShopViewModel>("/shoppings", shop, cancellationToken);
         response.EnsureSuccessStatusCode();
     }
+
+    public async Task UploadKvitto(KvittoShoppingViewModel shoppingViewModel, CancellationToken cancellationToken = default)
+    {
+        var response = await httpClient.PostAsJsonAsync<KvittoShoppingViewModel>("/receipts", shoppingViewModel, cancellationToken);
+        response.EnsureSuccessStatusCode();
+    }
 }
