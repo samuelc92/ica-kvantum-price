@@ -51,13 +51,14 @@ public class PdfService(DatabaseContext database) : IPdfService
             var description = match.Groups[1].Value;
             var productIdentifier = match.Groups[2].Value;
             var price = match.Groups[3].Value;
+            var date = DateTime.Parse(purchaseDate);
 
             response.Add(new Shopping
             {
                 ProductIdentifier = productIdentifier,
                 Description = description,
                 Price = Double.Parse(price, NumberStyles.Float, CultureInfo.InvariantCulture),
-                ShoppingDate = DateTime.Parse(purchaseDate)
+                ShoppingDate = DateTime.Parse(purchaseDate).ToUniversalTime()
             });
         }
 
