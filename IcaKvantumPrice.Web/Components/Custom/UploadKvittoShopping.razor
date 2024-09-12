@@ -1,4 +1,6 @@
-﻿<EditForm Model="@_shoppingViewModel" OnValidSubmit="@HandleValidSubmit" FormName="shopping_kvitto_entry" novalidate>
+﻿@rendermode InteractiveServer
+
+<EditForm Model="@_shoppingViewModel" OnValidSubmit="@HandleValidSubmit" FormName="shopping_kvitto_entry" novalidate>
     <DataAnnotationsValidator />
     <FluentValidationSummary />
 
