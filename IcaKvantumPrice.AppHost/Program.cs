@@ -2,11 +2,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedis("cache");
 
-var postgres = builder.AddPostgres("PostgreSQL");
-var icadb = postgres.AddDatabase("icadb");
-
-var apiService = builder.AddProject<Projects.IcaKvantumPrice_ApiService>("apiservice")
-                        .WithReference(icadb);
+var apiService = builder.AddProject<Projects.IcaKvantumPrice_ApiService>("apiservice");
 
 builder.AddProject<Projects.IcaKvantumPrice_Web>("webfrontend")
     .WithExternalHttpEndpoints()
