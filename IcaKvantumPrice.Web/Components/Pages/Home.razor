@@ -2,6 +2,10 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Products percentages prices</h1>
 
-Welcome to your new app.
+<FluentDataGrid Items="@_report">
+    <PropertyColumn Property="@(p => p.ProductIdentifier)" Sortable="false" />
+    <PropertyColumn Property="@(p => p.Description)" Sortable="false" />
+    <PropertyColumn Property="@(p => p.Porcentage)" Sortable="true" />
+</FluentDataGrid>

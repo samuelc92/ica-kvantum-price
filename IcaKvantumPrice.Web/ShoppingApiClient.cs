@@ -15,4 +15,10 @@ public class ShoppingApiClient(HttpClient httpClient)
         var response = await httpClient.PostAsJsonAsync<KvittoShoppingViewModel>("/receipts", shoppingViewModel, cancellationToken);
         response.EnsureSuccessStatusCode();
     }
+
+    public async Task<IEnumerable<ProductPriceReportViewModel>?> GetProductPriceReportAsync(CancellationToken cancellationToken = default)
+    {
+        var response = await httpClient.GetFromJsonAsync<IEnumerable<ProductPriceReportViewModel>>("/price-report", cancellationToken);
+        return response;
+    }
 }
