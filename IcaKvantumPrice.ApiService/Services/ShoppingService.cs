@@ -45,7 +45,9 @@ public class ShoppingService(DatabaseContext database) : IShoppingService
             var newPrice = item.Value.Last();
             var oldPrice = item.Value.First();
             var percentage = ((newPrice - oldPrice) / oldPrice) * 100;
-            result.Add(new ProductPriceReport(item.Key, description, double.Round(percentage, 2)));
+
+            if (percentage > 0)
+                result.Add(new ProductPriceReport(item.Key, description, double.Round(percentage, 2)));
         }
 
         return result;
