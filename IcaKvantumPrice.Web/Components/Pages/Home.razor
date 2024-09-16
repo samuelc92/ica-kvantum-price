@@ -5,7 +5,7 @@
 <h1>Products percentages prices</h1>
 
 <FluentDataGrid Items="@_report">
-    <PropertyColumn Property="@(p => p.ProductIdentifier)" Sortable="false" />
+    <PropertyColumn Property="@(p => p.ProductIdentifier)" Title="Identifier" Sortable="false" />
     <PropertyColumn Property="@(p => p.Description)" Sortable="false" />
     <PropertyColumn Property="@(p => p.Porcentage)" Sortable="true" />
 </FluentDataGrid>
