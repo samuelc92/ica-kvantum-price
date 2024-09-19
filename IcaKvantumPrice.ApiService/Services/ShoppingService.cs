@@ -1,8 +1,8 @@
 ﻿using IcaKvantumPrice.ApiService.Database;
-using IcaKvantumPrice.ApiService.Domain;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using FluentValidation.Results;
+using IcaKvantumPrice.ApiService.Shoppings;
 
 namespace IcaKvantumPrice.ApiService.Services;
 

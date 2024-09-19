@@ -1,4 +1,4 @@
-﻿using IcaKvantumPrice.ApiService.Domain;
+﻿using IcaKvantumPrice.ApiService.Shoppings;
 
 namespace IcaKvantumPrice.ApiService.Services;
 

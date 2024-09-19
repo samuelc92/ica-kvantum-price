@@ -1,4 +1,4 @@
-﻿using IcaKvantumPrice.ApiService.Domain;
+﻿using IcaKvantumPrice.ApiService.Shoppings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

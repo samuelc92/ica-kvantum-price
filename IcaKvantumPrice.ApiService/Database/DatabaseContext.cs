@@ -1,5 +1,5 @@
 ﻿using IcaKvantumPrice.ApiService.Database.Configurations;
-using IcaKvantumPrice.ApiService.Domain;
+using IcaKvantumPrice.ApiService.Shoppings;
 using Microsoft.EntityFrameworkCore;
 
 namespace IcaKvantumPrice.ApiService.Database;
