@@ -1,5 +1,5 @@
-﻿using IcaKvantumPrice.ApiService.Contracts.Responses;
-using IcaKvantumPrice.ApiService.Shoppings;
+﻿using IcaKvantumPrice.ApiService.Shoppings;
+using IcaKvantumPrice.ApiService.Shoppings.CreateShopping;
 
 namespace IcaKvantumPrice.ApiService.Mapping;
 

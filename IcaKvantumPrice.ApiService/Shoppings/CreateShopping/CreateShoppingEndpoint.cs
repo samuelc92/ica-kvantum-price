@@ -1,6 +1,4 @@
 ﻿using FastEndpoints;
-using IcaKvantumPrice.ApiService.Contracts.Requests;
-using IcaKvantumPrice.ApiService.Contracts.Responses;
 using IcaKvantumPrice.ApiService.Mapping;
 using IcaKvantumPrice.ApiService.Services;
 using Microsoft.AspNetCore.Authorization;
