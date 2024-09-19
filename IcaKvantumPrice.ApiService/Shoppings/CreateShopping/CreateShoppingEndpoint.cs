@@ -5,7 +5,7 @@ using IcaKvantumPrice.ApiService.Mapping;
 using IcaKvantumPrice.ApiService.Services;
 using Microsoft.AspNetCore.Authorization;
 
-namespace IcaKvantumPrice.ApiService.Endpoints;
+namespace IcaKvantumPrice.ApiService.Shoppings.CreateShopping;
 
 [HttpPost("shoppings"), AllowAnonymous]
 public class CreateShoppingEndpoint(IShoppingService service, ILogger<CreateShoppingEndpoint> logger) : Endpoint<CreateShoppingRequest, ShoppingResponse>

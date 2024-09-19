@@ -1,4 +1,4 @@
-﻿namespace IcaKvantumPrice.ApiService.Domain;
+﻿namespace IcaKvantumPrice.ApiService.Shoppings;
 
 public class Shopping
 {
