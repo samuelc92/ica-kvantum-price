@@ -1,7 +1,6 @@
 ﻿using FastEndpoints;
-using IcaKvantumPrice.ApiService.Shoppings.CreateShopping;
 
-namespace IcaKvantumPrice.ApiService.Summaries;
+namespace IcaKvantumPrice.ApiService.Shoppings.CreateShopping;
 
 public class CreateShoppingSummary : Summary<CreateShoppingEndpoint>
 {
