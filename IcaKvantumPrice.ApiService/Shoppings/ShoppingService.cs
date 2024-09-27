@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using FluentValidation.Results;
-using IcaKvantumPrice.ApiService.Shoppings;
+using IcaKvantumPrice.ApiService.Services;
 
-namespace IcaKvantumPrice.ApiService.Services;
+namespace IcaKvantumPrice.ApiService.Shoppings;
 
 public class ShoppingService(DatabaseContext database) : IShoppingService
 {
@@ -44,7 +44,7 @@ public class ShoppingService(DatabaseContext database) : IShoppingService
             var description = shoppings.First(p => p.ProductIdentifier.Equals(item.Key)).Description;
             var newPrice = item.Value.Last();
             var oldPrice = item.Value.First();
-            var percentage = ((newPrice - oldPrice) / oldPrice) * 100;
+            var percentage = (newPrice - oldPrice) / oldPrice * 100;
 
             if (percentage != 0)
                 result.Add(new ProductPriceReport(item.Key, description, double.Round(percentage, 2)));

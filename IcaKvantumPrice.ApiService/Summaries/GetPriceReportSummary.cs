@@ -1,5 +1,5 @@
 ﻿using FastEndpoints;
-using IcaKvantumPrice.ApiService.Services;
+using IcaKvantumPrice.ApiService.Shoppings;
 using IcaKvantumPrice.ApiService.Shoppings.GetPrice;
 
 namespace IcaKvantumPrice.ApiService.Summaries

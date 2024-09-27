@@ -21,9 +21,4 @@
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Contracts\Data\" />
-    <Folder Include="Contracts\Responses\" />
-  </ItemGroup>
-
 </Project>

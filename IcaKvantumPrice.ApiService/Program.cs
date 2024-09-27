@@ -2,6 +2,7 @@ using FastEndpoints;
 using FastEndpoints.Swagger;
 using IcaKvantumPrice.ApiService.Database;
 using IcaKvantumPrice.ApiService.Services;
+using IcaKvantumPrice.ApiService.Shoppings;
 using IcaKvantumPrice.ApiService.Shoppings.UploadReceipt;
 using Serilog;
 using Serilog.Events;

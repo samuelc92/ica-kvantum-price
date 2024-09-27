@@ -1,5 +1,4 @@
 ﻿using FastEndpoints;
-using IcaKvantumPrice.ApiService.Contracts.Requests;
 using Microsoft.AspNetCore.Authorization;
 
 namespace IcaKvantumPrice.ApiService.Shoppings.UploadReceipt;
