@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Contracts\Data\" />
     <Folder Include="Contracts\Responses\" />
   </ItemGroup>
 

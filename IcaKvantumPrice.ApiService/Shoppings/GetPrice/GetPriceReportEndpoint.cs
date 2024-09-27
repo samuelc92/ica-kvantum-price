@@ -2,7 +2,7 @@
 using IcaKvantumPrice.ApiService.Services;
 using Microsoft.AspNetCore.Authorization;
 
-namespace IcaKvantumPrice.ApiService.Endpoint;
+namespace IcaKvantumPrice.ApiService.Shoppings.GetPrice;
 
 [HttpGet("price-report"), AllowAnonymous]
 public class GetPriceReportEndpoint(IShoppingService shoppingService) : Endpoint<EmptyRequest, ICollection<ProductPriceReport>>
