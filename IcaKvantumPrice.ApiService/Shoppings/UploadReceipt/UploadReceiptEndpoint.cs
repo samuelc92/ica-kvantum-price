@@ -1,9 +1,8 @@
 ﻿using FastEndpoints;
 using IcaKvantumPrice.ApiService.Contracts.Requests;
-using IcaKvantumPrice.ApiService.Services;
 using Microsoft.AspNetCore.Authorization;
 
-namespace IcaKvantumPrice.ApiService.Endpoints;
+namespace IcaKvantumPrice.ApiService.Shoppings.UploadReceipt;
 
 [HttpPost("receipts"), AllowAnonymous]
 public class UploadReceiptEndpoint(IPdfService pdfService, ILogger<UploadReceiptEndpoint> logger) : Endpoint<UploadReceiptRequest, EmptyResponse>

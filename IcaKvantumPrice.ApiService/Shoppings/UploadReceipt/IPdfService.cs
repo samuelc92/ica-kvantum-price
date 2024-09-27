@@ -1,6 +1,6 @@
 ﻿using IcaKvantumPrice.ApiService.Domain;
 
-namespace IcaKvantumPrice.ApiService.Services;
+namespace IcaKvantumPrice.ApiService.Shoppings.UploadReceipt;
 
 public interface IPdfService
 {

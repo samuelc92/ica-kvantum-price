@@ -1,12 +1,11 @@
 ﻿using IcaKvantumPrice.ApiService.Database;
-using IcaKvantumPrice.ApiService.Shoppings;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas.Parser;
 using iText.Kernel.Pdf.Canvas.Parser.Listener;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace IcaKvantumPrice.ApiService.Services;
+namespace IcaKvantumPrice.ApiService.Shoppings.UploadReceipt;
 
 public class PdfService(DatabaseContext database) : IPdfService
 {
@@ -57,7 +56,7 @@ public class PdfService(DatabaseContext database) : IPdfService
             {
                 ProductIdentifier = productIdentifier,
                 Description = description,
-                Price = Double.Parse(price, NumberStyles.Float, CultureInfo.InvariantCulture),
+                Price = double.Parse(price, NumberStyles.Float, CultureInfo.InvariantCulture),
                 ShoppingDate = DateTime.Parse(purchaseDate).ToUniversalTime()
             });
         }
