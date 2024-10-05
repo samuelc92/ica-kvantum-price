@@ -44,16 +44,15 @@ public static class Extensions
         });
 
         builder.Services.AddOpenTelemetry()
-            .WithMetrics(metrics =>
-            {
-                metrics.AddAspNetCoreInstrumentation()
-                    .AddHttpClientInstrumentation()
-                    .AddRuntimeInstrumentation()
-                    .AddMeter(
-                        "Microsoft.AspNetCore.Hosting",
-                        "Microsoft.AspNetCore.Server.Kestrel",
-                        "System.Net.Http");
-            })
+            .WithMetrics(metrics => metrics
+                .AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation()
+                .AddRuntimeInstrumentation()
+                .AddMeter(
+                    "Microsoft.AspNetCore.Hosting",
+                    "Microsoft.AspNetCore.Server.Kestrel",
+                    "System.Net.Http")
+            )
             .WithTracing(tracing =>
             {
                 if (builder.Environment.IsDevelopment())
@@ -80,7 +79,7 @@ public static class Extensions
         {
             builder.Services.ConfigureOpenTelemetryLoggerProvider(logging => logging.AddOtlpExporter());
             builder.Services.ConfigureOpenTelemetryMeterProvider(metrics => metrics.AddOtlpExporter());
-            builder.Services.ConfigureOpenTelemetryTracerProvider(trace =>  trace.AddOtlpExporter());
+            builder.Services.ConfigureOpenTelemetryTracerProvider(trace => trace.AddOtlpExporter());
             //builder.Services.AddOpenTelemetry().UseOtlpExporter();
         }
 

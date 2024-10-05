@@ -3,8 +3,8 @@ var builder = DistributedApplication.CreateBuilder(args);
 var cache = builder.AddRedis("cache");
 
 var grafana = builder.AddContainer("grafana", "grafana/grafana")
-    //.WithVolume("../grafana/config", "/etc/grafana")
-    //.WithVolume("../grafana/dashboards", "/var/lib/grafana/dashboards")
+    .WithBindMount("../grafana/config", "/etc/grafana")
+    .WithBindMount("../grafana/dashboards", "/var/lib/grafana/dashboards")
     .WithEndpoint(targetPort: 3000, port: 3000, name: "grafana-http", scheme: "http");
     
 var prometheus = builder.AddContainer("prometheus", "prom/prometheus")
