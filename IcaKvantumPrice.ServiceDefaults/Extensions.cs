@@ -51,7 +51,8 @@ public static class Extensions
                 .AddMeter(
                     "Microsoft.AspNetCore.Hosting",
                     "Microsoft.AspNetCore.Server.Kestrel",
-                    "System.Net.Http")
+                    "System.Net.Http",
+                    "GetPriceReport")
             )
             .WithTracing(tracing =>
             {
@@ -67,6 +68,8 @@ public static class Extensions
             });
 
         builder.AddOpenTelemetryExporters();
+
+        builder.Services.AddMetrics();
 
         return builder;
     }
