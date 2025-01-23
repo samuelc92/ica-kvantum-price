@@ -7,10 +7,10 @@ namespace IcaKvantumPrice.Web.Components.Pages;
 public partial class Home
 {
     [Inject]
-    public ShoppingApiClient ApiClient { get; set; }
+    public required ShoppingApiClient ApiClient { get; set; }
 
     [Inject]
-    public IToastService ToastService { get; set; }
+    public required IToastService ToastService { get; set; }
 
 
     private IQueryable<ProductPriceReportViewModel>? _report;
@@ -20,7 +20,7 @@ public partial class Home
         try
         {
             var report = await ApiClient.GetProductPriceReportAsync();
-            _report = report?.AsQueryable();
+            _report = report?.OrderByDescending(p => p.Porcentage).AsQueryable();
         }
         catch
         {

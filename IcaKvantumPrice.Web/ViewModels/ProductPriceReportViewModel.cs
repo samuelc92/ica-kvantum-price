@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
+﻿namespace IcaKvantumPrice.Web.ViewModels;
 
-namespace IcaKvantumPrice.Web.ViewModels;
+using System.ComponentModel;
 
 public class ProductPriceReportViewModel
 {
@@ -8,4 +8,13 @@ public class ProductPriceReportViewModel
     public string? ProductIdentifier { get; set; }
     public string? Description { get; set; }
     public double Porcentage { get; set; }
+
+    [DisplayName("Percent")]
+    public string PorcentageFormatted
+    {
+        get
+        {
+            return Porcentage.ToString("F2") + "%";
+        }
+    }
 }
